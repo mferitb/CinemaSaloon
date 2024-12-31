@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinema Salonu Rezervasyon</title>
+    <link rel="stylesheet" href="Hall.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar left-sidebar">
+            <div class="dropdown-container">
+                <label for="session">Seans seçin:</label>
+                <select id="session">
+                    <option value="1">10:00</option>
+                    <option value="2">13:00</option>
+                    <option value="3">16:00</option>
+                    <option value="4">19:00</option>
+                    <option value="5">22:00</option>
+                </select>
+            </div>
+            <div class="dropdown-container">
+                <label for="theater">Salon seçin:</label>
+                <select id="theater">
+                    <option value="1">Salon 1</option>
+                    <option value="2">Salon 2</option>
+                    <option value="3">Salon 3</option>
+                </select>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="seat-info">
+                <div class="info-item">
+                    <div class="seat"></div>
+                    <span>Boş</span>
+                </div>
+                <div class="info-item">
+                    <div class="seat selected"></div>
+                    <span>Seçili</span>
+                </div>
+                <div class="info-item">
+                    <div class="seat occupied"></div>
+                    <span>Dolu</span>
+                </div>
+            </div>
+            <div class="screen-container">
+                <div class="curtain-left"></div>
+                <div class="screen"></div>
+                <div class="curtain-right"></div>
+            </div>
+            <div class="seat-container">
+                <div class="seat-half left-half">
+                    <div class="row">
+                        <div class="seat" data-seat-number="A1"></div>
+                        <div class="seat" data-seat-number="A2"></div>
+                        <div class="seat" data-seat-number="A3"></div>
+                        <div class="seat" data-seat-number="A4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="B1"></div>
+                        <div class="seat" data-seat-number="B2"></div>
+                        <div class="seat occupied" data-seat-number="B3"></div>
+                        <div class="seat occupied" data-seat-number="B4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="C1"></div>
+                        <div class="seat" data-seat-number="C2"></div>
+                        <div class="seat" data-seat-number="C3"></div>
+                        <div class="seat" data-seat-number="C4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="D1"></div>
+                        <div class="seat" data-seat-number="D2"></div>
+                        <div class="seat" data-seat-number="D3"></div>
+                        <div class="seat" data-seat-number="D4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="E1"></div>
+                        <div class="seat" data-seat-number="E2"></div>
+                        <div class="seat occupied" data-seat-number="E3"></div>
+                        <div class="seat occupied" data-seat-number="E4"></div>
+                    </div>
+                </div>
+                <div class="seat-half right-half">
+                    <div class="row">
+                        <div class="seat" data-seat-number="A5"></div>
+                        <div class="seat" data-seat-number="A6"></div>
+                        <div class="seat" data-seat-number="A7"></div>
+                        <div class="seat" data-seat-number="A8"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="B5"></div>
+                        <div class="seat" data-seat-number="B6"></div>
+                        <div class="seat" data-seat-number="B7"></div>
+                        <div class="seat" data-seat-number="B8"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat occupied" data-seat-number="C5"></div>
+                        <div class="seat occupied" data-seat-number="C6"></div>
+                        <div class="seat" data-seat-number="C7"></div>
+                        <div class="seat" data-seat-number="C8"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="D5"></div>
+                        <div class="seat" data-seat-number="D6"></div>
+                        <div class="seat" data-seat-number="D7"></div>
+                        <div class="seat" data-seat-number="D8"></div>
+                    </div>
+                    <div class="row">
+                        <div class="seat" data-seat-number="E5"></div>
+                        <div class="seat" data-seat-number="E6"></div>
+                        <div class="seat" data-seat-number="E7"></div>
+                        <div class="seat" data-seat-number="E8"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="seat-summary" style="display: flex; gap: 10px;">
+                <p>Seçilen koltuk sayısı: <span id="count" style="color: red;">0</span></p>
+                <p>Toplam fiyat: <span id="total" style="color: red;">0</span>₺</p>
+                <p>Seçilen koltuklar: <span id="selected-seats" style="color: red;"></span></p>
+            </div>
+
+
+        </div>
+        <div class="sidebar right-sidebar">
+            <h2>Büfe</h2>
+            <div class="vending-machine">
+                <div class="vending-item" data-item="popcorn" data-price="15">
+                    <div class="vending-item-info">
+                        <img src="Icons/Popcorn.png" alt="Mısır">
+                        <div class="item-details">
+                            <span class="item-name">Mısır</span>
+                            <span class="item-price">15₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+                <div class="vending-item" data-item="cola" data-price="10">
+                    <div class="vending-item-info">
+                        <img src="Icons/Coke.png" alt="Kola">
+                        <div class="item-details">
+                            <span class="item-name">Kola</span>
+                            <span class="item-price">10₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+                <div class="vending-item" data-item="soda" data-price="8">
+                    <div class="vending-item-info">
+                        <img src="Icons/Soda.png" alt="Gazoz">
+                        <div class="item-details">
+                            <span class="item-name">Gazoz</span>
+                            <span class="item-price">8₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+                <div class="vending-item" data-item="chocolate" data-price="12">
+                    <div class="vending-item-info">
+                        <img src="Icons/Choco.png" alt="Çikolata">
+                        <div class="item-details">
+                            <span class="item-name">Çikolata</span>
+                            <span class="item-price">12₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+                <div class="vending-item" data-item="water" data-price="5">
+                    <div class="vending-item-info">
+                        <img src="Icons/Water.png" alt="Su">
+                        <div class="item-details">
+                            <span class="item-name">Su</span>
+                            <span class="item-price">5₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+                <div class="vending-item" data-item="biscuit" data-price="7">
+                    <div class="vending-item-info">
+                        <img src="Icons/Biscuit.png" alt="Bisküvi">
+                        <div class="item-details">
+                            <span class="item-name">Bisküvi</span>
+                            <span class="item-price">7₺</span>
+                        </div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="quantity-btn minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-btn plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <div id="vending-total">Toplam: <span id="vending-total-amount">0</span>₺</div>
+            <button id="vending-purchase-btn">Ödeme Yap</button>
+        </div>
+    </div>
+
+    <script src="Hall.js"></script>
+</body>
+
+</html>
